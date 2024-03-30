@@ -1,23 +1,20 @@
 package Practica_190324;
 
+class Bicicleta{
+    Rueda rue=new Rueda();
+    Cuadro cud=new Cuadro();
+}
+
 // Definición de la clase Rueda
 class Rueda {
     private int diametro;
     private String tipo;
     private String material;
 
-    // Constructor
-    public Rueda(int diametro, String tipo, String material) {
-        this.diametro = diametro;
-        this.tipo = tipo;
-        this.material = material;
-    }
-
     // Getters y setters
     public int getDiametro() {
         return diametro;
     }
-
     public void setDiametro(int diametro) {
         this.diametro = diametro;
     }
@@ -44,14 +41,7 @@ class Cuadro {
     private String material;
     private String color;
     private int tamaño;
-
-    // Constructor
-    public Cuadro(String material, String color, int tamaño) {
-        this.material = material;
-        this.color = color;
-        this.tamaño = tamaño;
-    }
-
+    
     // Getters y setters
     public String getMaterial() {
         return material;
@@ -78,53 +68,33 @@ class Cuadro {
     }
 }
 
-// Definición de la clase Bicicleta
-class Bicicleta {
-    private Rueda ruedaDelantera;
-    private Rueda ruedaTrasera;
-    private Cuadro cuadro;
 
-    // Constructor
-    public Bicicleta(Rueda ruedaDelantera, Rueda ruedaTrasera, Cuadro cuadro) {
-        this.ruedaDelantera = ruedaDelantera;
-        this.ruedaTrasera = ruedaTrasera;
-        this.cuadro = cuadro;
-    }
-
-    // Método para obtener el material del cuadro de la bicicleta
-    public String obtenerMaterialCuadro() {
-        return cuadro.getMaterial();
-    }
-
-    // Método para obtener el diámetro de la rueda delantera
-    public int obtenerDiametroRuedaDelantera() {
-        return ruedaDelantera.getDiametro();
-    }
-
-    // Método para obtener el color del cuadro
-    public String obtenerColorCuadro() {
-        return cuadro.getColor();
-    }
-    public int obtenerDiametroRuedaTrasera() {
-        return ruedaTrasera.getDiametro();
-    }
-}
 
 public class Main1 {
     public static void main(String[] args) {
-        // Crear instancias de Rueda
-        Rueda ruedaDelantera = new Rueda(26, "MTB", "Aluminio");
-        Rueda ruedaTrasera = new Rueda(26, "MTB", "Aluminio");
+        Bicicleta bici = new Bicicleta();
+        bici.rue.setDiametro(90);;
+        bici.rue.setMaterial("Hierro");
+        bici.rue.setTipo("Montaña");
 
-        // Crear instancia de Cuadro
-        Cuadro cuadro = new Cuadro("Aluminio", "Rojo", 18);
+        bici.cud.setMaterial("Hierro");
+        bici.cud.setColor("Amarilla");
+        bici.cud.setTamaño(200);
 
-        // Crear instancia de Bicicleta
-        Bicicleta bicicleta = new Bicicleta(ruedaDelantera, ruedaTrasera, cuadro);
 
         // Imprimir valores de atributos
-        System.out.println("Material del cuadro: " + bicicleta.obtenerMaterialCuadro());
-        System.out.println("Diámetro de la rueda delantera: " + bicicleta.obtenerDiametroRuedaDelantera());
-        System.out.println("Color del cuadro: " + bicicleta.obtenerColorCuadro());
+        System.out.println("\nInformacion de la Rueda:");
+        System.out.println("Diametro: " + bici.rue.getDiametro());
+        System.out.println("Material: " + bici.rue.getMaterial());
+        System.out.println("Tipo: " + bici.rue.getTipo());
+
+        System.out.println("\nInformación del Cuadro:");
+        System.out.println("Material: " + bici.cud.getMaterial());
+        System.out.println("Color: " + bici.cud.getColor());
+        System.out.println("Tamaño: " + bici.cud.getTamaño());
+
+        
+
+
     }
 }
