@@ -2,42 +2,10 @@ package Practica_190324;
 
 // Clase CuerpoHumano
 class CuerpoHumano {
-    private Corazon corazon;
-    private Pulmon[] pulmones;
-    private Higado higado;
-    private Apendice apendice;
-
-    public Corazon getCorazon() {
-        return corazon;
-    }
-
-    public void setCorazon(Corazon corazon) {
-        this.corazon = corazon;
-    }
-
-    public Pulmon[] getPulmones() {
-        return pulmones;
-    }
-
-    public void setPulmones(Pulmon[] pulmones) {
-        this.pulmones = pulmones;
-    }
-
-    public Higado getHigado() {
-        return higado;
-    }
-
-    public void setHigado(Higado higado) {
-        this.higado = higado;
-    }
-
-    public Apendice getApendice() {
-        return apendice;
-    }
-
-    public void setApendice(Apendice apendice) {
-        this.apendice = apendice;
-    }
+    Corazon cors=new Corazon();
+    Pulmon pulms=new Pulmon();
+    Higado higo=new Higado();;
+    Apendice apd=new Apendice();
 }
 
 // Clase Corazon
@@ -169,21 +137,45 @@ public class Main {
     public static void main(String[] args) {
         // Crear un cuerpo humano y sus partes
         CuerpoHumano cuerpo = new CuerpoHumano();
-        cuerpo.setCorazon(new Corazon());
-        cuerpo.setPulmones(new Pulmon[]{new Pulmon(), new Pulmon()});
-        cuerpo.setHigado(new Higado());
-        cuerpo.setApendice(new Apendice());
+        cuerpo.cors.setTamaño("Grande");
+        cuerpo.cors.setRitmoCardiaco(70);
+        cuerpo.cors.setSano(true);
 
-        // Establecer valores de ejemplo
-        cuerpo.getCorazon().setTamaño("Normal");
-        cuerpo.getPulmones()[0].setCapacidad(2.5);
-        cuerpo.getHigado().setPeso(1.5);
-        cuerpo.getApendice().setTamaño(0.1);
+        cuerpo.pulms.setCapacidad(100);
+        cuerpo.pulms.setFuncionando(true);
+        cuerpo.pulms.setLado("Izquierdo");
+
+        cuerpo.higo.setColor("cafe");
+        cuerpo.higo.setFuncionando(true);
+        cuerpo.higo.setPeso(80);
+
+
+        cuerpo.apd.setInflamado(true);
+        cuerpo.apd.setSano(true);
+        cuerpo.apd.setTamaño(90);
+
+
 
         // Imprimir valores
-        System.out.println("Tamaño del corazón: " + cuerpo.getCorazon().getTamaño());
-        System.out.println("Capacidad del primer pulmón: " + cuerpo.getPulmones()[0].getCapacidad() + " litros");
-        System.out.println("Peso del hígado: " + cuerpo.getHigado().getPeso() + " kg");
-        System.out.println("Tamaño del apéndice: " + cuerpo.getApendice().getTamaño() + " cm");
+        System.out.println("Información del corazón:");
+        System.out.println("Tamaño: " + cuerpo.cors.getTamaño());
+        System.out.println("Ritmo Cardiaco: " + cuerpo.cors.getRitmoCardiaco());
+        System.out.println("¿Sano?: " + cuerpo.cors.isSano());
+
+        System.out.println("\nInformación del Pulmon:");
+        System.out.println("Capacidad: " + cuerpo.pulms.getCapacidad());
+        System.out.println("¿Esta funcionando?: " + cuerpo.pulms.isFuncionando());
+        System.out.println("Lado del pulmon: " + cuerpo.pulms.getLado());
+
+        System.out.println("\nInformación del Higado:");
+        System.out.println("Color: " + cuerpo.higo.getColor());
+        System.out.println("¿Esta funcionando?: " + cuerpo.higo.isFuncionando());
+        System.out.println("Peso: " + cuerpo.higo.getPeso());
+
+        System.out.println("\nInformación del Apendice:");
+        System.out.println("Tamaño: " + cuerpo.apd.getTamaño());
+        System.out.println("¿Esta inflamado?: " + cuerpo.apd.isInflamado());
+        System.out.println("¿Sano?: " + cuerpo.apd.isSano());
     }
 }
+        
