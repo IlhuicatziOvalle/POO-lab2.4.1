@@ -1,6 +1,6 @@
 package Practica_190324;
 
-// Clase CuerpoHumano
+//Clase CuerpoHumano
 class CuerpoHumano {
     Corazon cors=new Corazon();
     Pulmon pulms=new Pulmon();
@@ -8,98 +8,114 @@ class CuerpoHumano {
     Apendice apd=new Apendice();
 }
 
+
 // Clase Corazon
 class Corazon {
-    private String tamaño;
     private int ritmoCardiaco;
-    private boolean sano;
+    private String tipoSangre;
+    private boolean palpitacionesIrregulares;
 
-    public String getTamaño() {
-        return tamaño;
-    }
-
-    public void setTamaño(String tamaño) {
-        this.tamaño = tamaño;
-    }
 
     public int getRitmoCardiaco() {
         return ritmoCardiaco;
     }
 
+
     public void setRitmoCardiaco(int ritmoCardiaco) {
         this.ritmoCardiaco = ritmoCardiaco;
     }
-
-    public boolean isSano() {
-        return sano;
+    public String getTipoSangre() {
+        return tipoSangre;
     }
 
-    public void setSano(boolean sano) {
-        this.sano = sano;
+
+    public void setTipoSangre(String tipoSangre) {
+        this.tipoSangre = tipoSangre;
+    }
+
+
+    public boolean hasPalpitacionesIrregulares() {
+        return palpitacionesIrregulares;
+    }
+
+
+    public void setPalpitacionesIrregulares(boolean palpitacionesIrregulares) {
+        this.palpitacionesIrregulares = palpitacionesIrregulares;
     }
 }
+
 
 // Clase Pulmon
 class Pulmon {
     private String lado;
     private double capacidad;
-    private boolean funcionando;
+    private boolean tos;
+
 
     public String getLado() {
         return lado;
     }
 
+
     public void setLado(String lado) {
         this.lado = lado;
     }
+
 
     public double getCapacidad() {
         return capacidad;
     }
 
+
     public void setCapacidad(double capacidad) {
         this.capacidad = capacidad;
     }
-
-    public boolean isFuncionando() {
-        return funcionando;
+    public boolean hasTos() {
+        return tos;
     }
 
-    public void setFuncionando(boolean funcionando) {
-        this.funcionando = funcionando;
+
+    public void setTos(boolean tos) {
+        this.tos = tos;
     }
 }
+
 
 // Clase Higado
 class Higado {
     private double peso;
     private String color;
-    private boolean funcionando;
+    private boolean metabolismoAcelerado;
+
 
     public double getPeso() {
         return peso;
     }
 
+
     public void setPeso(double peso) {
         this.peso = peso;
     }
+
 
     public String getColor() {
         return color;
     }
 
+
     public void setColor(String color) {
         this.color = color;
     }
-
-    public boolean isFuncionando() {
-        return funcionando;
+    public boolean hasMetabolismoAcelerado() {
+        return metabolismoAcelerado;
     }
 
-    public void setFuncionando(boolean funcionando) {
-        this.funcionando = funcionando;
+
+    public void setMetabolismoAcelerado(boolean metabolismoAcelerado) {
+        this.metabolismoAcelerado = metabolismoAcelerado;
     }
 }
+
 
 // Clase Apendice
 class Apendice {
@@ -107,75 +123,94 @@ class Apendice {
     private boolean inflamado;
     private boolean sano;
 
+
     public double getTamaño() {
         return tamaño;
     }
+
 
     public void setTamaño(double tamaño) {
         this.tamaño = tamaño;
     }
 
+
     public boolean isInflamado() {
         return inflamado;
     }
+
 
     public void setInflamado(boolean inflamado) {
         this.inflamado = inflamado;
     }
 
+
     public boolean isSano() {
         return sano;
     }
+
 
     public void setSano(boolean sano) {
         this.sano = sano;
     }
 }
 
+
 // Clase principal para probar
 public class Main {
     public static void main(String[] args) {
         // Crear un cuerpo humano y sus partes
         CuerpoHumano cuerpo = new CuerpoHumano();
-        cuerpo.cors.setTamaño("Grande");
-        cuerpo.cors.setRitmoCardiaco(70);
-        cuerpo.cors.setSano(true);
 
-        cuerpo.pulms.setCapacidad(100);
-        cuerpo.pulms.setFuncionando(true);
-        cuerpo.pulms.setLado("Izquierdo");
 
-        cuerpo.higo.setColor("cafe");
-        cuerpo.higo.setFuncionando(true);
-        cuerpo.higo.setPeso(80);
+        cuerpo.cors.setPalpitacionesIrregulares(true);
+        cuerpo.cors.setRitmoCardiaco(52);
+        cuerpo.cors.setTipoSangre("A");
+
+
+        cuerpo.pulms.setCapacidad(10.2);
+        cuerpo.pulms.setLado("Derecho");
+        cuerpo.pulms.setTos(true);
+   
+        cuerpo.higo.setColor("Cafe");
+        cuerpo.higo.setMetabolismoAcelerado(true);
+        cuerpo.higo.setPeso(52.2);
 
 
         cuerpo.apd.setInflamado(true);
         cuerpo.apd.setSano(true);
-        cuerpo.apd.setTamaño(90);
-
-
-
-        // Imprimir valores
-        System.out.println("Información del corazón:");
-        System.out.println("Tamaño: " + cuerpo.cors.getTamaño());
+        cuerpo.apd.setTamaño(22.1);
+       
+        // Acceder a los atributos de cada órgano y sus respectivos métodos get
+        // Corazón
+        System.out.println("Corazón:");
         System.out.println("Ritmo Cardiaco: " + cuerpo.cors.getRitmoCardiaco());
-        System.out.println("¿Sano?: " + cuerpo.cors.isSano());
+        System.out.println("Tipo de Sangre: " + cuerpo.cors.getTipoSangre());
+        System.out.println("Palpitaciones Irregulares: " + cuerpo.cors.hasPalpitacionesIrregulares());
+        System.out.println();
 
-        System.out.println("\nInformación del Pulmon:");
+
+        // Pulmones
+        System.out.println("Pulmones:");
+        System.out.println("Lado: " + cuerpo.pulms.getLado());
         System.out.println("Capacidad: " + cuerpo.pulms.getCapacidad());
-        System.out.println("¿Esta funcionando?: " + cuerpo.pulms.isFuncionando());
-        System.out.println("Lado del pulmon: " + cuerpo.pulms.getLado());
+        System.out.println("Tos: " + cuerpo.pulms.hasTos());
+        System.out.println();
 
-        System.out.println("\nInformación del Higado:");
-        System.out.println("Color: " + cuerpo.higo.getColor());
-        System.out.println("¿Esta funcionando?: " + cuerpo.higo.isFuncionando());
+
+        // Hígado
+        System.out.println("Hígado:");
         System.out.println("Peso: " + cuerpo.higo.getPeso());
+        System.out.println("Color: " + cuerpo.higo.getColor());
+        System.out.println("Metabolismo Acelerado: " + cuerpo.higo.hasMetabolismoAcelerado());
+        System.out.println();
 
-        System.out.println("\nInformación del Apendice:");
+
+        // Apendice
+        System.out.println("Apendice:");
         System.out.println("Tamaño: " + cuerpo.apd.getTamaño());
-        System.out.println("¿Esta inflamado?: " + cuerpo.apd.isInflamado());
-        System.out.println("¿Sano?: " + cuerpo.apd.isSano());
+        System.out.println("Inflamado: " + cuerpo.apd.isInflamado());
+        System.out.println("Sano: " + cuerpo.apd.isSano());
     }
 }
-        
+       
+  
